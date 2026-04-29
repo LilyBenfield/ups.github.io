@@ -5,8 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Universal Pigeon Service</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
   :root {
     --brown: #3b2a1a;
@@ -23,7 +28,9 @@
     --text-muted: #6b5c48;
   }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+  }
 
   body {
     font-family: 'DM Sans', sans-serif;
@@ -46,18 +53,43 @@
     padding: 3rem 2rem;
     text-align: center;
   }
+
   .hero-bg-circles {
-    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
   }
+
   .hero-bg-circles span {
     position: absolute;
     border-radius: 50%;
     opacity: 0.07;
   }
-  .hero-bg-circles span:nth-child(1) { width: 500px; height: 500px; background: var(--tan); top: -150px; left: -100px; }
-  .hero-bg-circles span:nth-child(2) { width: 300px; height: 300px; background: var(--sky); bottom: -80px; right: 5%; }
-  .hero-bg-circles span:nth-child(3) { width: 200px; height: 200px; background: var(--orange); top: 40%; right: -60px; }
 
+  .hero-bg-circles span:nth-child(1) {
+    width: 500px;
+    height: 500px;
+    background: var(--tan);
+    top: -150px;
+    left: -100px;
+  }
+
+  .hero-bg-circles span:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: var(--sky);
+    bottom: -80px;
+    right: 5%;
+  }
+
+  .hero-bg-circles span:nth-child(3) {
+    width: 200px;
+    height: 200px;
+    background: var(--orange);
+    top: 40%;
+    right: -60px;
+  }
 
   .hero-eyebrow {
     font-family: 'DM Mono', monospace;
@@ -67,6 +99,18 @@
     color: var(--tan);
     margin-bottom: 1.5rem;
     animation: fadeUp 0.6s ease both;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-pigeon-img {
+    width: clamp(48px, 8vw, 90px);
+    height: auto;
+    margin-bottom: 0.5rem;
+    animation: float 3s ease-in-out infinite, fadeUp 0.6s 0.35s ease both;
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.25));
+    position: relative;
+    z-index: 1;
   }
 
   .hero-logo {
@@ -77,7 +121,10 @@
     line-height: 0.9;
     margin-bottom: 0.5rem;
     animation: fadeUp 0.6s 0.1s ease both;
+    position: relative;
+    z-index: 1;
   }
+
   .hero-logo .ups-accent {
     color: var(--tan);
     display: block;
@@ -94,15 +141,9 @@
     line-height: 1.6;
     margin: 1.5rem auto 2.5rem;
     animation: fadeUp 0.6s 0.25s ease both;
+    position: relative;
+    z-index: 1;
   }
-
-  .hero-pigeon-img {
-  width: clamp(48px, 8vw, 90px);
-  height: auto;
-  margin-bottom: 0.5rem;
-  animation: float 3s ease-in-out infinite, fadeUp 0.6s 0.35s ease both;
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.25));
-}
 
   .hero-cta {
     display: inline-flex;
@@ -118,9 +159,19 @@
     border-radius: 100px;
     transition: background 0.2s, transform 0.15s;
     animation: fadeUp 0.6s 0.4s ease both;
+    position: relative;
+    z-index: 1;
   }
-  .hero-cta:hover { background: var(--tan-light); transform: translateY(-2px); }
-  .hero-cta svg { width: 18px; height: 18px; }
+
+  .hero-cta:hover {
+    background: var(--tan-light);
+    transform: translateY(-2px);
+  }
+
+  .hero-cta svg {
+    width: 18px;
+    height: 18px;
+  }
 
   .scroll-hint {
     position: absolute;
@@ -134,12 +185,18 @@
     text-transform: uppercase;
     opacity: 0.6;
     animation: bounce 2s ease-in-out infinite;
+    z-index: 1;
   }
 
   /* ── SECTIONS ── */
-  section { padding: 5rem 2rem; }
+  section {
+    padding: 5rem 2rem;
+  }
 
-  .container { max-width: 900px; margin: 0 auto; }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
   .section-label {
     font-family: 'DM Mono', monospace;
@@ -160,18 +217,23 @@
   }
 
   /* ── ABOUT ── */
-  .about { background: var(--cream); }
+  .about {
+    background: var(--cream);
+  }
+
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
   }
+
   .about-text p {
     font-size: 1.05rem;
     line-height: 1.75;
     color: var(--text-muted);
   }
+
   .about-stamp {
     background: var(--brown);
     color: var(--cream);
@@ -180,6 +242,7 @@
     text-align: center;
     position: relative;
   }
+
   .about-stamp::before {
     content: '';
     position: absolute;
@@ -188,7 +251,12 @@
     border-radius: 10px;
     pointer-events: none;
   }
-  .about-stamp .big-icon { font-size: 4rem; margin-bottom: 0.75rem; }
+
+  .about-stamp .big-icon {
+    font-size: 4rem;
+    margin-bottom: 0.75rem;
+  }
+
   .about-stamp h3 {
     font-family: 'Syne', sans-serif;
     font-size: 1.1rem;
@@ -196,16 +264,25 @@
     color: var(--tan);
     margin-bottom: 0.25rem;
   }
-  .about-stamp p { font-size: 0.85rem; color: var(--tan-light); line-height: 1.5; }
+
+  .about-stamp p {
+    font-size: 0.85rem;
+    color: var(--tan-light);
+    line-height: 1.5;
+  }
 
   /* ── FEATURES ── */
-  .features { background: var(--sky-light); }
+  .features {
+    background: var(--sky-light);
+  }
+
   .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     margin-top: 2.5rem;
   }
+
   .feature-card {
     background: white;
     border-radius: 16px;
@@ -213,12 +290,25 @@
     border: 1.5px solid rgba(122,184,212,0.25);
     transition: transform 0.2s, border-color 0.2s;
   }
-  .feature-card:hover { transform: translateY(-4px); border-color: var(--sky); }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--sky);
+  }
+
   .feature-icon {
     font-size: 2.25rem;
     margin-bottom: 1rem;
     display: block;
   }
+
+  .feature-icon-img {
+    width: 42px;
+    height: auto;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
   .feature-card h3 {
     font-family: 'Syne', sans-serif;
     font-size: 1.05rem;
@@ -226,100 +316,67 @@
     color: var(--brown);
     margin-bottom: 0.5rem;
   }
+
   .feature-card p {
     font-size: 0.88rem;
     color: var(--text-muted);
     line-height: 1.6;
   }
-  .feature-icon-img {
-  width: 42px;
-  height: auto;
-  margin-bottom: 1rem;
-  display: block;
-  }/* ── VIDEO WALKTHROUGH ── */
-.demo-video {
-  background: var(--cream);
-}
 
-.video-intro {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-  max-width: 650px;
-  margin-bottom: 2rem;
-}
+  /* ── VIDEO WALKTHROUGH ── */
+  .demo-video {
+    background: var(--cream);
+  }
 
-.video-card {
-  background: var(--brown);
-  border-radius: 20px;
-  padding: 1rem;
-  box-shadow: 0 18px 45px rgba(59, 42, 26, 0.18);
-}
+  .video-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin-bottom: 2rem;
+  }
 
-.video-frame {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 14px;
-  overflow: hidden;
-  background: var(--dark);
-}
+  .video-card {
+    background: var(--brown);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 18px 45px rgba(59, 42, 26, 0.18);
+  }
 
-.video-frame iframe,
-.video-frame video {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: 0;
-}
+  .video-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--dark);
+  }
 
-.video-caption {
-  padding: 1.25rem 1rem 0.25rem;
-  color: var(--tan-light);
-}
+  .video-frame iframe,
+  .video-frame video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+  }
 
-.video-caption h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.1rem;
-  color: var(--tan);
-  margin-bottom: 0.4rem;
-}
+  .video-caption {
+    padding: 1.25rem 1rem 0.25rem;
+    color: var(--tan-light);
+  }
 
-.video-caption p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-</section>
-<!-- VIDEO WALKTHROUGH -->
-<section class="demo-video">
-  <div class="container">
-    <p class="section-label">Project Walkthrough</p>
-    <h2 class="section-title">See Universal Pigeon Service in action</h2>
-    <p class="video-intro">
-      Watch a full walkthrough of the project, including the core gameplay loop, pigeon upgrades,
-      package delivery system, seed economy, and how the game looks while running.
-    </p>
+  .video-caption h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    color: var(--tan);
+    margin-bottom: 0.4rem;
+  }
 
-    <div class="video-card">
-      <div class="video-frame">
-        <iframe 
-          src="https://www.youtube.com/embed/XfELJU1mRMg&t=6s"
-          title="Universal Pigeon Service gameplay walkthrough"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
+  .video-caption p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
 
-      <div class="video-caption">
-        <h3>Gameplay and Project Overview</h3>
-        <p>
-          This demo shows how players deliver packages, earn seeds, upgrade their pigeons,
-          expand their flock, and progress through the Universal Pigeon Service experience.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
   /* ── CTA BAND ── */
   .cta-band {
     background: var(--orange);
@@ -327,9 +384,23 @@
     text-align: center;
     padding: 4rem 2rem;
   }
-  .cta-band .section-label { color: rgba(255,255,255,0.7); }
-  .cta-band .section-title { color: white; margin-bottom: 0.75rem; }
-  .cta-band p { color: rgba(255,255,255,0.85); max-width: 500px; margin: 0 auto 2rem; line-height: 1.6; }
+
+  .cta-band .section-label {
+    color: rgba(255,255,255,0.7);
+  }
+
+  .cta-band .section-title {
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-band p {
+    color: rgba(255,255,255,0.85);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
   .btn-white {
     display: inline-flex;
     align-items: center;
@@ -344,16 +415,24 @@
     border-radius: 100px;
     transition: opacity 0.2s, transform 0.15s;
   }
-  .btn-white:hover { opacity: 0.92; transform: translateY(-2px); }
+
+  .btn-white:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+  }
 
   /* ── TEAM ── */
-  .team { background: var(--cream); }
+  .team {
+    background: var(--cream);
+  }
+
   .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 1.5rem;
     margin-top: 2.5rem;
   }
+
   .team-card {
     background: var(--brown);
     border-radius: 16px;
@@ -362,25 +441,33 @@
     position: relative;
     overflow: hidden;
   }
+
   .team-card::after {
     content: '';
     position: absolute;
-    bottom: -30px; right: -30px;
-    width: 80px; height: 80px;
+    bottom: -30px;
+    right: -30px;
+    width: 80px;
+    height: 80px;
     background: rgba(200,169,110,0.1);
     border-radius: 50%;
   }
+
   .team-avatar {
-    width: 56px; height: 56px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     background: var(--tan);
     color: var(--brown);
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     font-size: 1.25rem;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto 1rem;
   }
+
   .team-card h3 {
     font-family: 'Syne', sans-serif;
     font-size: 1rem;
@@ -388,6 +475,7 @@
     color: var(--cream);
     margin-bottom: 0.25rem;
   }
+
   .team-role {
     font-family: 'DM Mono', monospace;
     font-size: 0.7rem;
@@ -397,6 +485,7 @@
     margin-bottom: 0.75rem;
     display: block;
   }
+
   .team-card p {
     font-size: 0.82rem;
     color: var(--tan-light);
@@ -415,48 +504,98 @@
     letter-spacing: 0.05em;
     opacity: 0.9;
   }
-  footer a { color: var(--tan); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
+
+  footer a {
+    color: var(--tan);
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
+
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-12px); }
+    0%, 100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-12px);
+    }
   }
+
   @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50%       { transform: translateX(-50%) translateY(6px); }
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+      transform: translateX(-50%) translateY(6px);
+    }
   }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 640px) {
-    .about-grid { grid-template-columns: 1fr; }
-    .about-stamp { display: none; }
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-stamp {
+      display: none;
+    }
+
+    .hero-cta,
+    .btn-white {
+      width: 100%;
+      justify-content: center;
+    }
   }
 </style>
 </head>
+
 <body>
 
 <!-- HERO -->
 <header class="hero">
   <div class="hero-bg-circles">
-    <span></span><span></span><span></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+
   <p class="hero-eyebrow">An Idle Clicker Game</p>
-  <img class="hero-pigeon-img" src="pigeon.png" alt="Pigeon mascot">  
+
+  <img class="hero-pigeon-img" src="pigeon.png" alt="Pigeon mascot">
+
   <h1 class="hero-logo">
     Universal Pigeon Service
     <span class="ups-accent">UPS</span>
   </h1>
-  <p class="hero-tagline">Deliver packages. Earn seeds. Build the world's finest feathered postal fleet.</p>
-  <a href="https://github.com/olincollege/Universal-Pigeon-Service-Public" target="_blank" class="hero-cta">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+
+  <p class="hero-tagline">
+    Deliver packages. Earn seeds. Build the world's finest feathered postal fleet.
+  </p>
+
+  <a href="https://github.com/olincollege/Universal-Pigeon-Service-Public" target="_blank" rel="noopener noreferrer" class="hero-cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+    </svg>
     View on GitHub
   </a>
+
   <p class="scroll-hint">↓ scroll</p>
 </header>
 
@@ -467,14 +606,25 @@
       <div class="about-text">
         <p class="section-label">About the Game</p>
         <h2 class="section-title">Your Feathery Journey Begins</h2>
-        <p>The Universal Pigeon Service is an idle clicker game where you start with a single pigeon — each blessed with a unique, randomly generated government name — ready to tackle their delivery route.</p>
+
+        <p>
+          The Universal Pigeon Service is an idle clicker game where you start with a single pigeon — each blessed with a unique, randomly generated government name — ready to tackle their delivery route.
+        </p>
+
         <br>
-        <p>Your pigeon works tirelessly to complete deliveries and earn seeds as payment. Spend those seeds on better training, faster factories, and new birds. Build your flock, optimize your routes, and rise to become the most elite UPS carrier the world has ever seen.</p>
+
+        <p>
+          Your pigeon works tirelessly to complete deliveries and earn seeds as payment. Spend those seeds on better training, faster factories, and new birds. Build your flock, optimize your routes, and rise to become the most elite UPS carrier the world has ever seen.
+        </p>
       </div>
+
       <div class="about-stamp">
         <div class="big-icon">📦</div>
         <h3>Package Delivered</h3>
-        <p>Every successful delivery earns seeds.<br>Every seed spent builds your empire.</p>
+        <p>
+          Every successful delivery earns seeds.<br>
+          Every seed spent builds your empire.
+        </p>
       </div>
     </div>
   </div>
@@ -485,26 +635,70 @@
   <div class="container">
     <p class="section-label">Game Highlights</p>
     <h2 class="section-title">What makes UPS special</h2>
+
     <div class="features-grid">
       <div class="feature-card">
         <span class="feature-icon">🏋️</span>
         <h3>Pigeon Stat Upgrades</h3>
-        <p>Train your pigeons across running, climbing, and flying to watch them blaze through delivery routes faster than ever.</p>
+        <p>
+          Train your pigeons across running, climbing, and flying to watch them blaze through delivery routes faster than ever.
+        </p>
       </div>
+
       <div class="feature-card">
         <span class="feature-icon">🏭</span>
         <h3>Box Factory Upgrades</h3>
-        <p>Deliveries require boxes! Upgrade your factory to keep a steady supply of packages flowing to your hard-working birds.</p>
+        <p>
+          Deliveries require boxes! Upgrade your factory to keep a steady supply of packages flowing to your hard-working birds.
+        </p>
       </div>
+
       <div class="feature-card">
         <img class="feature-icon-img" src="pigeon.png" alt="Pigeon">
         <h3>Expand Your Flock</h3>
-        <p>Accumulate enough seeds to recruit new pigeons, each specializable for different route conditions and delivery types.</p>
+        <p>
+          Accumulate enough seeds to recruit new pigeons, each specializable for different route conditions and delivery types.
+        </p>
       </div>
+
       <div class="feature-card">
         <span class="feature-icon">📋</span>
         <h3>Government Names</h3>
-        <p>Each pigeon receives a randomly generated full name — making your flock memorable, and occasionally hiding a fun easter egg.</p>
+        <p>
+          Each pigeon receives a randomly generated full name — making your flock memorable, and occasionally hiding a fun easter egg.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO WALKTHROUGH -->
+<section class="demo-video">
+  <div class="container">
+    <p class="section-label">Project Walkthrough</p>
+    <h2 class="section-title">See Universal Pigeon Service in action</h2>
+
+    <p class="video-intro">
+      Watch a full walkthrough of the project, including the core gameplay loop, pigeon upgrades,
+      package delivery system, seed economy, and how the game looks while running.
+    </p>
+
+    <div class="video-card">
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/XfELJU1mRMg?start=6"
+          title="Universal Pigeon Service gameplay walkthrough"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="video-caption">
+        <h3>Gameplay and Project Overview</h3>
+        <p>
+          This demo shows how players deliver packages, earn seeds, upgrade their pigeons,
+          expand their flock, and progress through the Universal Pigeon Service experience.
+        </p>
       </div>
     </div>
   </div>
@@ -515,9 +709,15 @@
   <div class="container">
     <p class="section-label">Get the Game</p>
     <h2 class="section-title">Ready to start delivering?</h2>
-    <p>Clone the repository and follow the README instructions to get Universal Pigeon Service running on your machine.</p>
-    <a href="https://github.com/olincollege/Universal-Pigeon-Service-Public" target="_blank" class="btn-white">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+
+    <p>
+      Clone the repository and follow the README instructions to get Universal Pigeon Service running on your machine.
+    </p>
+
+    <a href="https://github.com/olincollege/Universal-Pigeon-Service-Public" target="_blank" rel="noopener noreferrer" class="btn-white">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+      </svg>
       github.com/olincollege/Universal-Pigeon-Service-Public
     </a>
   </div>
@@ -528,30 +728,42 @@
   <div class="container">
     <p class="section-label">The Team</p>
     <h2 class="section-title">Author Contributions</h2>
+
     <div class="team-grid">
       <div class="team-card">
         <div class="team-avatar">I</div>
         <h3>Ian</h3>
         <span class="team-role">Structural Lead</span>
-        <p>Created and scaffolded the core game logic and order of operations that powers UPS.</p>
+        <p>
+          Created and scaffolded the core game logic and order of operations that powers UPS.
+        </p>
       </div>
+
       <div class="team-card">
         <div class="team-avatar">C</div>
         <h3>Charlie</h3>
         <span class="team-role">Controller Lead</span>
-        <p>Built all controller logic and input handling to make the game fully playable.</p>
+        <p>
+          Built all controller logic and input handling to make the game fully playable.
+        </p>
       </div>
+
       <div class="team-card">
         <div class="team-avatar">M</div>
         <h3>Maria</h3>
         <span class="team-role">Art Lead</span>
-        <p>Designed and produced all artwork and original visuals for Universal Pigeon Service.</p>
+        <p>
+          Designed and produced all artwork and original visuals for Universal Pigeon Service.
+        </p>
       </div>
+
       <div class="team-card">
         <div class="team-avatar">L</div>
         <h3>Lily</h3>
         <span class="team-role">Visual Lead</span>
-        <p>Implemented all sprites and visuals into the codebase to bring the game to life.</p>
+        <p>
+          Implemented all sprites and visuals into the codebase to bring the game to life.
+        </p>
       </div>
     </div>
   </div>
@@ -559,7 +771,12 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>Universal Pigeon Service &nbsp;·&nbsp; <a href="https://github.com/olincollege/Universal-Pigeon-Service-Public" target="_blank">github.com/olincollege/Universal-Pigeon-Service-Public</a></p>
+  <p>
+    Universal Pigeon Service &nbsp;·&nbsp;
+    <a href="https://github.com/olincollege/Universal-Pigeon-Service-Public" target="_blank" rel="noopener noreferrer">
+      github.com/olincollege/Universal-Pigeon-Service-Public
+    </a>
+  </p>
 </footer>
 
 </body>
