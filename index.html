@@ -46,7 +46,7 @@
     padding: 3rem 2rem;
     text-align: center;
   }
-
+  <p style="color:red; font-size:30px;">TEST VERSION</p>
   .hero-bg-circles {
     position: absolute; inset: 0; pointer-events: none; overflow: hidden;
   }
@@ -58,6 +58,7 @@
   .hero-bg-circles span:nth-child(1) { width: 500px; height: 500px; background: var(--tan); top: -150px; left: -100px; }
   .hero-bg-circles span:nth-child(2) { width: 300px; height: 300px; background: var(--sky); bottom: -80px; right: 5%; }
   .hero-bg-circles span:nth-child(3) { width: 200px; height: 200px; background: var(--orange); top: 40%; right: -60px; }
+
 
   .hero-eyebrow {
     font-family: 'DM Mono', monospace;
@@ -231,7 +232,12 @@
     color: var(--text-muted);
     line-height: 1.6;
   }
-
+  .feature-icon-img {
+  width: 42px;
+  height: auto;
+  margin-bottom: 1rem;
+  display: block;
+  }
   /* ── CTA BAND ── */
   .cta-band {
     background: var(--orange);
@@ -409,7 +415,7 @@
         <p>Deliveries require boxes! Upgrade your factory to keep a steady supply of packages flowing to your hard-working birds.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">🐦</span>
+        <img class="feature-icon-img" src="pigeon.png" alt="Pigeon">
         <h3>Expand Your Flock</h3>
         <p>Accumulate enough seeds to recruit new pigeons, each specializable for different route conditions and delivery types.</p>
       </div>
